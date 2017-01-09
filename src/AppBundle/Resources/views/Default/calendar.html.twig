@@ -1,0 +1,20 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block menu_calendar %}active{% endblock %}
+
+{% block contents %}
+    <section>
+    	<div class="container">
+    		<h3>Prochaines diffusions d'épisodes</h3>
+            <div class="row">
+            {% if episodes %}
+        		{% for episode in episodes %}
+                    <p class="col-sm-12"> {{ episode.date|date("d/m/Y") }} - {{ episode.season.show.name }} : {{ episode.name }} </p>
+        		{% endfor %}
+            {% else %}
+            <p class="col-sm-12">Il n'y a aucun épisode à venir pour l'instant.</p>
+            {% endif %}
+            </div>
+    	</div>
+    </section>
+{% endblock %}
